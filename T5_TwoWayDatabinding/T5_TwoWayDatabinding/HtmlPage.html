@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <!--<script src="scripts/angular.min.js"></script>-->
+    <script src="scripts/AppScript.js"></script>
+</head>
+<body ng-app="myModule">
+   <div ng-controller="myController">
+       <table>
+           <tr>
+               <td>FirstName</td>
+               <td> <input type="text" placeholder="FirstName" ng-model="employee.firstName"/> </td>
+           </tr>
+
+           <tr>
+               <td>LastName</td>
+               <td> <input type="text" placeholder="LastName" ng-model="employee.lastName" /> </td>
+           </tr>
+
+           <tr>
+               <td>Gender</td>
+               <td> <input type="text" placeholder="FirstName" ng-model="employee.gender" /> </td>
+           </tr>
+     
+           <tr></tr>
+           <tr></tr>
+
+           <tr>
+               <td>FirstName : </td>
+               <td>{{ employee.firstName }}</td>
+           </tr>
+           <tr>
+               <td>LastName : </td>
+               <td> {{ employee.lastName }} </td>
+           </tr>
+           <tr>
+               <td>Gender : </td>
+               <td> {{ employee.gender }} </td>
+           </tr>
+       </table>
+   </div>
+</body>
+</html>
