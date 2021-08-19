@@ -8,15 +8,15 @@
 </head>
 <body ng-app="myModule">
 
-    <div ng-controller="myController">
+    <div ng-controller="myController" >
         
-        <ul ng-repeat="country in countries">
+        <ul ng-repeat="country in countries" ng-init="parentIndex = $index">
 
-            <li> {{ country.name }} : Parent Index = {{ $index }}</li> 
+            <li> {{ country.name }} :: {{ $index }}</li> 
 
             <ul ng-repeat="city in country.cities">
                 
-                <li> {{ city.name }} : Index =  {{ $index }} </li>  
+                <li> {{ city.name }} : ParentIndex = {{ parentIndex }} : ChildIndex =  {{ $index }} </li>  
 
             </ul>
 
