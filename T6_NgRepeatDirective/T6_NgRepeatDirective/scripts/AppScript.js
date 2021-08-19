@@ -1,14 +1,34 @@
 ﻿var myApp = angular.module("myModule", []);
 
 var myController = function ($scope) {
-    var employees = [
-        { firstName: "TestF1", lastName: "TestL1", gender: "Male" },
-        { firstName: "TestF2", lastName: "TestL2", gender: "Female" },
-        { firstName: "TestF3", lastName: "TestL3", gender: "Male" },
-        { firstName: "TestF4", lastName: "TestL4", gender: "Female" }
+    var countries = [
+        {
+            name: "UK",
+            cities: [
+                { name: "London" },
+                { name: "Birmingham" },
+                { name: "Manchester" }
+            ]
+        },
+        {
+            name: "USA",
+            cities: [
+                { name: "Los Angeles" },
+                { name: "Chicago" },
+                { name: "Houston" }
+            ]
+        },
+        {
+            name: "India",
+            cities: [
+                { name: "Hyderabad" },
+                { name: "Chennai" },
+                { name: "Mumbai" }
+            ]
+            }
     ];
 
-    $scope.employees = employees;
+    $scope.countries = countries;
 }
 
 myApp.controller("myController", myController);

@@ -9,22 +9,19 @@
 <body ng-app="myModule">
 
     <div ng-controller="myController">
-        <table>
-            <thead>
-                <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Gender</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="employee in employees">
-                    <td>{{employee.firstName}}</td>
-                    <td>{{employee.lastName}}</td>
-                    <td>{{employee.gender}}</td>
-                </tr>
-            </tbody>
-        </table>
+        
+        <ul ng-repeat="country in countries">
+
+            <li> {{ country.name }} </li> 
+
+            <ul ng-repeat="city in country.cities">
+                
+                <li> {{ city.name }} </li>  
+
+            </ul>
+
+        </ul>
+         
     </div>
 </body>
 </html>
