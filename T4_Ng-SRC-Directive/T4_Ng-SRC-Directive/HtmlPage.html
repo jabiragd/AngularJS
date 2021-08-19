@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>>
+    <!--<script src="scripts/angular.min.js"></script>-->
+    <script src="scripts/angularscript.js"></script>
+</head>
+<body ng-app="myModule">
+
+    <div ng-controller="myController">
+        <div>Country Name : {{ countryDetail.countryName }}</div>
+        <div>Capital : {{ countryDetail.capital }}</div>
+        <div>
+            <!--<img src="images/flag.png" alt="{{ countryDetail.countryName + ' Flag' }}" style="width: 100px; height: 200px"/>-->
+
+            <img ng-src="images/flag.png" alt="{{ countryDetail.countryName + ' Flag' }}" style="width: 100px; height: 200px" />
+
+        </div>
+
+    </div>
+
+</body>
+</html>
