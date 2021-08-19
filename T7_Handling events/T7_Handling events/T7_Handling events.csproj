@@ -109,6 +109,9 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\AppScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <style>
+        table {
+        border-collapse: collapse;
+        font-family:Arial;
+        }
+
+        td {
+        border: 1px solid black;
+        padding: 5px;
+        }
+
+        th {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: left;
+        }
+    </style>
+
     <title></title>
 	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/AppScript.js"></script>
 </head>
-<body>
-    Test Page
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Likes</td>
+                    <td>Dislikes</td>
+                    <td>Like/Dislikes</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>{{ technology.name }}</td>
+                    <td style="text-align:center">{{ technology.likes }}</td>
+                    <td style="text-align:center">{{ technology.dislikes }}</td>
+                    <td>
+                        <input type="button" ng-click="incrementLikes(technology)" value="Like" />
+                        <input type="button" ng-click="increamentDislikes(technology)" value="Dislike" /> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
