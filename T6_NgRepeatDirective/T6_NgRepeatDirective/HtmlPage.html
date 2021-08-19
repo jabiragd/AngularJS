@@ -12,11 +12,11 @@
         
         <ul ng-repeat="country in countries">
 
-            <li> {{ country.name }} </li> 
+            <li> {{ country.name }} : Parent Index = {{ $index }}</li> 
 
             <ul ng-repeat="city in country.cities">
                 
-                <li> {{ city.name }} </li>  
+                <li> {{ city.name }} : Index =  {{ $index }} </li>  
 
             </ul>
 
