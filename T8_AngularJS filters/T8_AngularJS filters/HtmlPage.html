@@ -3,8 +3,33 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/AppScript.js"></script>
 </head>
-<body>
-    Tesyy
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Row to display : <input type="number" step="1" max="5" min="0" ng-model="rowCount" /> 
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary (Number Filter)</th>
+                    <th>Salary (Currency Filter)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowCount:2">
+                    <td>{{ employee.name | uppercase  }}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd-MMM-yyyy" }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.salary | number:3}}</td>
+                    <td>{{ employee.salary | currency:"$":3 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
