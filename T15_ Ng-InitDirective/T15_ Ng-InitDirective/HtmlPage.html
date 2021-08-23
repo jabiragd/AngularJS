@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+
+    <div ng-init="employees = [
+                    { name: 'Ben', gender: 'Male', city: 'London' },
+                    { name: 'Sara', gender: 'Female', city: 'Chennai' },
+                    { name: 'Mark', gender: 'Male', city: 'Chicago' },
+                    { name: 'Pam', gender: 'Female', city: 'London' },
+                    { name: 'Todd', gender: 'Male', city: 'Chennai' }
+                ]">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.city }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
