@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/AppScript.js"></script>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        SelectView
+        <select ng-model="employeeView">
+            <option value="EmployeeTable.html" >Table</option>
+            <option value="EmployeeList.html">List</option>
+        </select>
+
+        <div ng-include="employeeView"> </div>
+
+    </div>
+    
+</body>
+</html>
