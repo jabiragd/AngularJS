@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/AppScript.js"></script>
+</head>
+<body ng-app="myModule">
+
+    <input type="checkbox" ng-model="hideSalary" />Hide Salary
+    <input type="checkbox" ng-model="showSalary" />Sho Salary
+    <br/><br />
+
+    <div ng-controller="myController"> 
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-hide="hideSalary">Salary</th>
+                    <th ng-show="showSalary">Salary</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.city }}</td>
+                    <td ng-hide="hideSalary">{{ employee.salary }}</td>
+                    <td ng-show="showSalary">{{ employee.salary }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
