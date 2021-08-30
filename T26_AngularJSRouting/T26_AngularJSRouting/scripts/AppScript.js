@@ -48,10 +48,10 @@ var app = angular
                         templateUrl: "Templates/studentDetails.html",
                         controller: "studentDetailsController"
                     })
-                    .otherwise({
-                        redirectTo:"/home"
-                    })
-                $locationProvider.html5Mode(true);
+                    //.otherwise({
+                     //   redirectTo:"/home"
+                    //})
+                //$locationProvider.html5Mode(true);
             })
             .controller("homeController", function ($scope) {
                 $scope.message = "Home Page";
