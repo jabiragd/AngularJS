@@ -44,8 +44,8 @@ var app = angular
                         templateUrl: "Templates/students.html",
                         controller: "studentsController"
                     })
-                    .when("/student/:id", {
-                        templateUrl: "Templates/studentdetail.html",
+                    .when("/students/:id", {
+                        templateUrl: "Templates/studentDetails.html",
                         controller: "studentDetailsController"
                     })
                     .otherwise({
@@ -60,11 +60,18 @@ var app = angular
                 $scope.courses = ["C#", "VB.NET", "ASP.NET", "SQL Server"];
             })
             .controller("studentsController", function ($scope, $http) {
-                 $http.get("StudentService.asmx/GetAllStudents")
+                $http.get("StudentService.asmx/GetAllStudents",{cache: true})
                 .then(function (response) {
                     $scope.students = response.data;
                 })
-            }).controller("studentDetailsController", function ($http) {
-
+            })
+            .controller("studentDetailsController", function ($scope, $http, $routeParams) {
+                $http({
+                    url: "StudentService.asmx/GetStudent",
+                    method: "get",
+                    params: { id: $routeParams.id }
+                }).then(function (response) {
+                    $scope.student = response.data;
+                })
           
             })

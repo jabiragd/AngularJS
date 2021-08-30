@@ -84,7 +84,8 @@ namespace T26_AngularJSRouting
                     student.city = rdr["City"].ToString();
                 }
             }
-
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(student));
           
         }
     }
