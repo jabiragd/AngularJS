@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="Demo">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--<base href="/" />-->
+    <!--<base href="/angulartest26/" />-->
+     <!--<base href="/src/">-->   
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/AppScript.js"></script>
+    <link href="scripts/AppStyles.css" rel="stylesheet" />
+    <!--<base href="./" />-->
+    <base href="/angulartest26/" />
+
+</head>
+<body >
+    <table style="font-family: Arial">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>
+                    WebSite Header
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a href="home">Home</a>
+                <a href="courses">Courses</a>
+                <a href="students">Students</a>
+            </td>
+            <td class="mainContent">
+                <ng-view></ng-view>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <b>Website Footer</b>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
