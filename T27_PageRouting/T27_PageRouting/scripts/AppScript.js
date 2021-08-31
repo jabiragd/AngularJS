@@ -14,31 +14,37 @@
                 templateUrl: "Templates/students.html",
                 controller: "studentsController"
             })
+            .when("/students/:id", {
+                templateUrl: "Templates/studentDetails.html",
+                controller: "studentDetailsController"
+            })
+            .otherwise({
+                redirectTo:"/home"
+            })
             
     })
-    .controller("homeController", homeController)
+    .controller("homeController", function ($scope) {
+        $scope.message = "welcome message";
+    })
     .controller("coursesController", function ($scope) {
         $scope.courses = ["C#", "VB.NET", "ASP.NET", "SQL Server"];
     })
     .controller("studentsController", function ($scope, $http) {
+        //StudentService.asmx/GetAllStudents
         $http.get("StudentService.asmx/GetAllStudents")
                             .then(function (response) {
                                 $scope.students = response.data;
-                            })
+        })
     })
-        //.controller("homeController", homeController)
-        //.controller("coursesController", coursesController)
-        //.controller("studentsController", studentsController)
-
-
-var homeController = function ($scope) {
-    $scope.message = "WELCOME TUTORIAL";
-}
-
-var coursesController = function ($scope) {
-    $scope.courses = ["C#", "VB.NET", "ASP.NET", "SQL Server"];
-}
-
-var studentsController = function ($scope,$http) {
-    
-}
+    .controller("studentDetailsController", function ($scope, $http, $routeParams) {
+        $http({
+            url: "StudentService.asmx/GetStudent",
+            method: "get",
+            params: { id: $routeParams.id }
+        })
+        .then(function (response) {
+            $scope.student = response.data;
+        }, function (reason) {
+            console.log(reason)
+        })
+    })
