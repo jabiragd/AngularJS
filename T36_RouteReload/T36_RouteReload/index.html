@@ -1,9 +1,12 @@
 ﻿<!DOCTYPE html>
-<html ng-app="Demo">
+<html ng-app="myModule">
 <head>
     <title></title>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/AppScript.js"></script>
+    <link href="scripts/Style.css" rel="stylesheet" />
+    <base href="/angulartest36/">
 </head>
 <body>
     <table style="font-family: Arial">
@@ -16,9 +19,9 @@
         </tr>
         <tr>
             <td class="leftMenu">
-                <a href="#/home">Home</a>
-                <a href="#/courses">Courses</a>
-                <a href="#/students">Students</a>
+                <a href="home">Home</a>
+                <a href="courses">Courses</a>
+                <a href="students">Students</a>
             </td>
             <td class="mainContent">
                 <ng-view></ng-view>
