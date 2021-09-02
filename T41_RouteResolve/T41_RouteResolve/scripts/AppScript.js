@@ -13,7 +13,15 @@
                 })
                 .when("/students", {
                     templateUrl: "Templates/students.html",
-                    controller: "studentsController"
+                    controller: "studentsController",
+                    resolve : {
+                        studentlist: function ($http) {
+                            return $http.get("StudentService.asmx/GetAllStudents")
+                            .then(function (response) {
+                                return response.data;
+                            })
+                        }
+                    }
                 })
                 .when("/students/:id", {
                     templateUrl: "Templates/studentDetails.html",
@@ -33,7 +41,7 @@
             .controller("coursesController", function ($scope) {
                 $scope.courses = ["C#","JAVA","C","C++"]
             })
-            .controller("studentsController", function ($scope, $http,$location) {
+            .controller("studentsController", function (studentlist, $scope, $http, $location) {
 
                 $scope.studentSearch = function () {
                     console.log("studentSearch")
@@ -44,10 +52,11 @@
                     }
                 }
 
-                $http.get("StudentService.asmx/GetAllStudents")
-                    .then(function (response) {
-                        $scope.students = response.data;
-                    })
+                //$http.get("StudentService.asmx/GetAllStudents")
+                //    .then(function (response) {
+                //        $scope.students = response.data;
+                //    })
+                $scope.students = studentlist;
             })
             .controller("studentDetailsController", function ($scope, $http, $routeParams) {
                 $http({

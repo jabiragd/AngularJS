@@ -20,6 +20,8 @@ namespace T41_RouteResolve
     public class StudentService : System.Web.Services.WebService
     {
 
+        private int threadcount = 0;
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -29,7 +31,12 @@ namespace T41_RouteResolve
         [WebMethod]
         public void GetAllStudents()
         {
+            //System.Diagnostics.Debug.WriteLine("step 1");
             List<Student> studentList = new List<Student>();
+            threadcount += 1;
+            System.Threading.Thread.Sleep(10000);
+
+            System.Diagnostics.Debug.WriteLine("step 2");
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(cs))
@@ -49,6 +56,15 @@ namespace T41_RouteResolve
 
                     studentList.Add(student);
                 }
+
+                Student st = new Student();
+                st.id = threadcount;
+                st.name = "test";
+                st.gender = "male";
+                st.city = "DUbai";
+                studentList.Add(st);
+
+                //System.Diagnostics.Debug.WriteLine("step 3 : threadcount = "+ threadcount);
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Context.Response.Write(js.Serialize(studentList));
